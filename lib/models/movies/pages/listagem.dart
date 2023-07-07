@@ -43,6 +43,13 @@ class ListagemPage extends StatelessWidget {
                 Navigator.of(context).pushNamed(RoutesGenerator.listagemTVPage);
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.toc_outlined),
+              title: const Text(AppConstants.sobre),
+              onTap: () {
+                Navigator.of(context).pushNamed(RoutesGenerator.Sobre);
+              },
+            ),
           ],
         ),
       ),

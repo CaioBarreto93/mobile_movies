@@ -9,4 +9,5 @@ abstract class AppConstants {
 
   static const listagemFilmes = 'Filmes';
   static const listagemTV = 'Serie e Novelas';
+  static const sobre = 'Sobre';
 }

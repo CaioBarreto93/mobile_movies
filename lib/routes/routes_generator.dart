@@ -44,6 +44,8 @@ class RoutesGenerator {
           nomeUsuario: 'nome',
           emailUsuario: 'email',
         ));
+      case Sobre:
+        return _goPage(const SobrePage());
       case listagemPage:
         return _goPage(ListagemPage(movieController: movieController));
       case listagemTVPage:

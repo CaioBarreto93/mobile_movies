@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../shared/text.dart';
 
-
 class TopRatedMovies extends StatelessWidget {
   final List _toprated;
 
-  const TopRatedMovies({required List toprated, super.key}) : _toprated = toprated;
+  const TopRatedMovies({required List toprated, super.key})
+      : _toprated = toprated;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,12 +15,12 @@ class TopRatedMovies extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const modified_text(
-            text: 'Top Rated Movies',
+            text: 'Filmes Recém Lançados',
             size: 26,
           ),
           const SizedBox(height: 10),
           SizedBox(
-              height: 270,
+              height: MediaQuery.of(context).size.height - 200,
               child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: _toprated.length,

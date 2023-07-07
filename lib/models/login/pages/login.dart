@@ -15,6 +15,8 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   String? _email;
   String? _password;
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,8 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     InputDefault(
                       hintText: "Yourmail@gmail.com",
+                      controller: _controllerEmail,
+                      autofocus: true,
                       validator: Validator.requiredEmail,
                       keyboardType: TextInputType.emailAddress,
                       onChanged: (value) {
@@ -60,6 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     InputDefault(
                       hintText: "******",
+                      controller: _controllerPassword,
                       validator: Validator.requiredSenha,
                       keyboardType: TextInputType.text,
                       obscureText: true,
@@ -80,9 +85,13 @@ class _LoginPageState extends State<LoginPage> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               if (_email == 'valido@usuario.com.br' &&
-                                  _senha == '123456@') {
-                                Navigator.of(context).pushNamed(
-                                    RoutesGenerator.listagemPage);
+                                  _password == '123456@') {
+                                _email = '';
+                                _password = '';
+                                _controllerPassword.clear();
+                                _controllerEmail.clear();
+                                Navigator.of(context)
+                                    .pushNamed(RoutesGenerator.listagemPage);
                               } else {
                                 showDialog(
                                   context: context,
@@ -117,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           onPressed: () {
                             Navigator.of(context)
-                                .pushReplacementNamed(RoutesGenerator.cadastro);
+                                .pushNamed(RoutesGenerator.cadastro);
                           },
                           child: const Text(
                             "Cadastrar-se",
@@ -139,8 +148,8 @@ class _LoginPageState extends State<LoginPage> {
                                 MaterialStateProperty.all(Colors.blue),
                           ),
                           onPressed: () {
-                            Navigator.of(context).pushReplacementNamed(
-                                RoutesGenerator.esquecerSenha);
+                            Navigator.of(context)
+                                .pushNamed(RoutesGenerator.esquecerSenha);
                           },
                           child: const Text(
                             "Recuperar Senha",

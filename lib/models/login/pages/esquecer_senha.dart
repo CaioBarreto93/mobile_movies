@@ -44,7 +44,7 @@ class _EsquecerSenhaPageState extends State<EsquecerSenhaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro'),
+        title: const Text('Esquece a senha'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

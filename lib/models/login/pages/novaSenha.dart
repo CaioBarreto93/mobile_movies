@@ -44,7 +44,7 @@ class _NovaSenhaPageState extends State<NovaSenhaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro'),
+        title: const Text('Cadatro Nova Senha'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -66,11 +66,18 @@ class _NovaSenhaPageState extends State<NovaSenhaPage> {
               ),
               const SizedBox(height: 16.0),
               ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.cyan)),
                 onPressed: () {
                   Navigator.of(context)
                       .pushReplacementNamed(RoutesGenerator.loginPage);
                 },
-                child: const Text('Salvar'),
+                child: const Text(
+                  "Salvar",
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ],
           ),

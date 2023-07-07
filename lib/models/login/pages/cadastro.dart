@@ -90,8 +90,15 @@ class _CadastroPageState extends State<CadastroPage> {
               ),
               const SizedBox(height: 16.0),
               ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.cyan)),
                 onPressed: _cadastrar,
-                child: const Text('Cadastrar'),
+                child: const Text(
+                  "Salvar",
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ],
           ),

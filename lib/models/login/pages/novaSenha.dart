@@ -5,7 +5,12 @@ import '../../../routes/routes_generator.dart';
 import '../../../shared/validators.dart';
 
 class NovaSenhaPage extends StatefulWidget {
-  const NovaSenhaPage({Key? key}) : super(key: key);
+  final String nomeUsuario;
+  final String emailUsuario;
+
+  const NovaSenhaPage(
+      {Key? key, required this.nomeUsuario, required this.emailUsuario})
+      : super(key: key);
 
   @override
   _NovaSenhaPageState createState() => _NovaSenhaPageState();
@@ -44,7 +49,8 @@ class _NovaSenhaPageState extends State<NovaSenhaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadatro Nova Senha'),
+        backgroundColor: Colors.cyan,
+        title: const Text('Cadastrar Nova Senha'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

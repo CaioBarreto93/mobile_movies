@@ -9,6 +9,7 @@ import '../models/login/pages/esquecer_senha.dart';
 import '../models/login/pages/login.dart';
 import '../models/login/pages/novaSenha.dart';
 import '../models/movies/pages/listagemTV.dart';
+import '../models/movies/pages/sobre.dart';
 import '../shared/constants.dart';
 
 class RoutesGenerator {
@@ -18,6 +19,8 @@ class RoutesGenerator {
   static const novaSenha = '/novaSenha';
   static const listagemPage = '/listagem';
   static const listagemTVPage = '/listagemTV';
+  static const Sobre = '/sobre';
+
 
   RoutesGenerator._();
 

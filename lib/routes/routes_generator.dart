@@ -1,5 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_movies/models/movies/controller/moviecontroller.dart';
+import 'package:mobile_movies/models/movies/datasources/movie_datasource_impl.dart';
+import 'package:mobile_movies/models/movies/pages/listagem.dart';
+import 'package:mobile_movies/models/movies/services/movie_service.dart';
 
 import '../models/login/pages/cadastro.dart';
 import '../models/login/pages/esquecer_senha.dart';
@@ -12,10 +16,15 @@ class RoutesGenerator {
   static const cadastro = '/cadastro';
   static const esquecerSenha = '/esquecer_senha';
   static const novaSenha = '/novaSenha';
+  static const listagemPage = '/listagem';
 
   RoutesGenerator._();
 
   static Route generate(RouteSettings settings) {
+    final movieDatasource = MovieDatasourceImpl();
+    final movieService = MovieService(movieDatasource);
+    final movieController = MovieController(movieService);
+
     switch (settings.name) {
       case loginPage:
         return _goPage(const LoginPage());
@@ -26,6 +35,8 @@ class RoutesGenerator {
       case novaSenha:
         return _goPage(const NovaSenhaPage());
 
+      case listagemPage:
+        return _goPage(ListagemPage(movieController: movieController));
       default:
         throw const FormatException(AppConstants.pageNotFound);
     }

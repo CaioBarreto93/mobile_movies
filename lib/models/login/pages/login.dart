@@ -80,9 +80,9 @@ class _LoginPageState extends State<LoginPage> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               if (_email == 'valido@usuario.com.br' &&
-                                  _password == '123456@') {
-                                // Navigator.of(context).pushReplacementNamed(
-                                //     RoutesGenerator.listagemPage);
+                                  _senha == '123456@') {
+                                Navigator.of(context).pushNamed(
+                                    RoutesGenerator.listagemPage);
                               } else {
                                 showDialog(
                                   context: context,

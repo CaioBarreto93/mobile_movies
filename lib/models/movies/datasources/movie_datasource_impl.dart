@@ -23,8 +23,6 @@ class MovieDatasourceImpl implements MovieDatasource {
     topratedmovies = topratedresult['results'];
 
     return topratedmovies;
-
-    throw UnimplementedError();
   }
 
   @override

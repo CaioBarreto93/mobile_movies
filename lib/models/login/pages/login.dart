@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_movies/routes/routes_generator.dart';
+import 'package:mobile_movies/shared/text.dart';
 import '../../../components/input_default.dart';
 import '../../../shared/validators.dart';
-import '../../../models/login/pages/cadastro.dart';
 
 class LoginPage extends StatefulWidget {
   final String emailUsuario;
@@ -39,12 +39,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Login',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              const modified_text(text: 'Login', size: 38),
               const Padding(
                 padding: EdgeInsets.all(10.0),
               ),
@@ -123,51 +118,58 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: SizedBox(
-                        height: 40,
-                        width: MediaQuery.of(context).size.width,
-                        child: TextButton(
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.cyan),
-                          ),
-                          onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed(RoutesGenerator.cadastro);
-                          },
-                          child: const Text(
-                            "Cadastrar-se",
-                            style: TextStyle(
-                              color: Colors.black,
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: SizedBox(
+                            height: 40,
+                            width: (MediaQuery.of(context).size.width / 2) - 45,
+                            child: TextButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.cyan),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed(RoutesGenerator.cadastro);
+                              },
+                              child: const Text(
+                                "Cadastrar-se",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: SizedBox(
-                        height: 40,
-                        width: MediaQuery.of(context).size.width,
-                        child: TextButton(
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.cyan),
-                          ),
-                          onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed(RoutesGenerator.esquecerSenha);
-                          },
-                          child: const Text(
-                            "Recuperar Senha",
-                            style: TextStyle(
-                              color: Colors.black,
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: SizedBox(
+                            height: 40,
+                            width: (MediaQuery.of(context).size.width / 2) - 45,
+                            child: TextButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.cyan),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed(RoutesGenerator.esquecerSenha);
+                              },
+                              child: const Text(
+                                "Recuperar Senha",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
                   ],
                 ),

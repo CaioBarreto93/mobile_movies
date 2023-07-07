@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../components/input_default.dart';
 import '../../../shared/validators.dart';
+import 'login.dart';
 
 class CadastroPage extends StatefulWidget {
   const CadastroPage({Key? key}) : super(key: key);
@@ -28,6 +29,12 @@ class _CadastroPageState extends State<CadastroPage> {
 
   void _cadastrar() {
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        String email = _emailController.text;
+        String senha = _senhaController.text;
+        Navigator.push(context, MaterialPageRoute(
+        builder: (context) => LoginPage(emailUsuario: email, senhaUsuario: senha)));     
+      });
       // Realize a ação de cadastro aqui, como enviar dados para um servidor ou salvar localmente.
       // Você pode acessar os valores dos campos usando _nomeController.text, _emailController.text, _senhaController.text, _repetirSenhaController.text.
       // Lembre-se de tratar as senhas corretamente antes de armazená-las ou enviá-las para um servidor seguro.
@@ -52,23 +59,37 @@ class _CadastroPageState extends State<CadastroPage> {
             children: [
               InputDefault(
                 hintText: "Inserir Nome",
-                keyboardType: TextInputType.name,
+                controller: _nomeController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Por favor, insira um Nome.';
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.text,
                 onChanged: (value) {},
               ),
               const SizedBox(height: 16.0),
               InputDefault(
-                hintText: "Insira seu e-mail",
+                hintText: "Insira seu E-mail",
+                controller: _emailController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Por favor, insira um E-mail.';
+                  }
+                  return null;
+                },
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {},
               ),
               const SizedBox(height: 16.0),
               InputDefault(
                 hintText: "Inserir Senha",
+                controller: _senhaController,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Por favor, insira uma senha.';
                   }
-                  // Aqui você pode adicionar validações adicionais para a força da senha.
                   return null;
                 },
                 keyboardType: TextInputType.text,

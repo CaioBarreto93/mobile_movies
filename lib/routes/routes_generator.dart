@@ -27,7 +27,7 @@ class RoutesGenerator {
 
     switch (settings.name) {
       case loginPage:
-        return _goPage(const LoginPage());
+        return _goPage(const LoginPage(emailUsuario: 'email',senhaUsuario: 'senha', ));
       case cadastro:
         return _goPage(const CadastroPage());
       case esquecerSenha:

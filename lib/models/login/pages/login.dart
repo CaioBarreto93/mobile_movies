@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                             if (_key.currentState!.validate()) {
                               if (_email == 'valido@usuario.com.br' &&
                                   _senha == '123456@') {
-                                Navigator.of(context).pushReplacementNamed(
+                                Navigator.of(context).pushNamed(
                                     RoutesGenerator.listagemPage);
                               } else {
                                 showDialog(

@@ -44,7 +44,7 @@ class _EsquecerSenhaPageState extends State<EsquecerSenhaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Esquece a senha'),
+        title: const Text('Recuperar a senha'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -66,11 +66,18 @@ class _EsquecerSenhaPageState extends State<EsquecerSenhaPage> {
               ),
               const SizedBox(height: 16.0),
               ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.cyan)),
                 onPressed: () {
                   Navigator.of(context)
                       .pushReplacementNamed(RoutesGenerator.novaSenha);
                 },
-                child: const Text('Recuperar'),
+                child: const Text(
+                  "Enviar",
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ],
           ),

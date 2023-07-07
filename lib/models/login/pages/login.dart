@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: TextButton(
                           style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(Colors.blue),
+                                MaterialStateProperty.all(Colors.cyan),
                           ),
                           onPressed: () {
                             Navigator.of(context)
@@ -131,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: const Text(
                             "Cadastrar-se",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                           ),
                         ),
@@ -145,7 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: TextButton(
                           style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(Colors.blue),
+                                MaterialStateProperty.all(Colors.cyan),
                           ),
                           onPressed: () {
                             Navigator.of(context)
@@ -154,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: const Text(
                             "Recuperar Senha",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                           ),
                         ),

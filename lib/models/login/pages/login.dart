@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-
+import 'package:mobile_movies/routes/routes_generator.dart';
 import '../../../components/input_default.dart';
-import '../../../routes/routes_generator.dart';
 import '../../../shared/validators.dart';
+import '../../../models/login/pages/cadastro.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _key = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   String? _email;
-  String? _senha;
+  String? _password;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.all(10.0),
               ),
               Form(
-                key: _key,
+                key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                       keyboardType: TextInputType.text,
                       obscureText: true,
                       onChanged: (value) {
-                        _senha = value;
+                        _password = value;
                       },
                     ),
                     Padding(
@@ -73,29 +73,28 @@ class _LoginPageState extends State<LoginPage> {
                         height: 40,
                         width: MediaQuery.of(context).size.width,
                         child: ElevatedButton(
-                          style: const ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(
-                              Colors.cyan,
-                            ),
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.cyan),
                           ),
                           onPressed: () {
-                            if (_key.currentState!.validate()) {
+                            if (_formKey.currentState!.validate()) {
                               if (_email == 'valido@usuario.com.br' &&
-                                  _senha == '123456@') {
-                                Navigator.of(context).pushReplacementNamed(
-                                    RoutesGenerator.listagemPage);
+                                  _password == '123456@') {
+                                // Navigator.of(context).pushReplacementNamed(
+                                //     RoutesGenerator.listagemPage);
                               } else {
                                 showDialog(
                                   context: context,
                                   builder: (context) => AlertDialog(
                                     title: const Text("Erro de autenticação"),
                                     content: const Text(
-                                        "Email ou Senha incorreto por favor verifique as informações inseridas"),
+                                        "Email ou senha incorretos. Por favor, verifique as informações inseridas."),
                                     actions: <Widget>[
                                       TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(context),
-                                          child: const Text("OK")),
+                                        onPressed: () => Navigator.pop(context),
+                                        child: const Text("OK"),
+                                      ),
                                     ],
                                   ),
                                 );
@@ -103,6 +102,52 @@ class _LoginPageState extends State<LoginPage> {
                             }
                           },
                           child: const Text("Login"),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: SizedBox(
+                        height: 40,
+                        width: MediaQuery.of(context).size.width,
+                        child: TextButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.blue),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(RoutesGenerator.cadastro);
+                          },
+                          child: const Text(
+                            "Cadastrar-se",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: SizedBox(
+                        height: 40,
+                        width: MediaQuery.of(context).size.width,
+                        child: TextButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.blue),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pushReplacementNamed(
+                                RoutesGenerator.esquecerSenha);
+                          },
+                          child: const Text(
+                            "Recuperar Senha",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ),

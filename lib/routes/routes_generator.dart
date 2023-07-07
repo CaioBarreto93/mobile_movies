@@ -37,7 +37,10 @@ class RoutesGenerator {
       case esquecerSenha:
         return _goPage(const EsquecerSenhaPage());
       case novaSenha:
-        return _goPage(const NovaSenhaPage());
+        return _goPage(const NovaSenhaPage(
+          nomeUsuario: 'nome',
+          emailUsuario: 'email',
+        ));
       case listagemPage:
         return _goPage(ListagemPage(movieController: movieController));
       case listagemTVPage:

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../components/input_default.dart';
 import '../../../routes/routes_generator.dart';
 import '../../../shared/validators.dart';
+import 'novaSenha.dart';
 
 class EsquecerSenhaPage extends StatefulWidget {
   const EsquecerSenhaPage({Key? key}) : super(key: key);
@@ -29,8 +30,14 @@ class _EsquecerSenhaPageState extends State<EsquecerSenhaPage> {
     super.dispose();
   }
 
-  void _cadastrar() {
+  void _esquecerSenha() {
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        String nome = _emailController.text;
+        String email = _senhaController.text;
+        Navigator.push(context, MaterialPageRoute(
+        builder: (context) => NovaSenhaPage(nomeUsuario: nome, emailUsuario: email)));     
+      });
       // Realize a ação de cadastro aqui, como enviar dados para um servidor ou salvar localmente.
       // Você pode acessar os valores dos campos usando _nomeController.text, _emailController.text, _senhaController.text, _repetirSenhaController.text.
       // Lembre-se de tratar as senhas corretamente antes de armazená-las ou enviá-las para um servidor seguro.
@@ -44,6 +51,7 @@ class _EsquecerSenhaPageState extends State<EsquecerSenhaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
         title: const Text('Recuperar a senha'),
       ),
       body: Padding(
@@ -55,12 +63,26 @@ class _EsquecerSenhaPageState extends State<EsquecerSenhaPage> {
             children: [
               InputDefault(
                 hintText: "Inserir Nome",
-                keyboardType: TextInputType.name,
+                controller: _nomeController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Por favor, insira um Nome.';
+                  }
+                  return null;
+                },
+                keyboardType: TextInputType.text,
                 onChanged: (value) {},
               ),
               const SizedBox(height: 16.0),
               InputDefault(
-                hintText: "Inserir E-mail",
+                hintText: "Insira seu E-mail",
+                controller: _emailController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Por favor, insira um E-mail.';
+                  }
+                  return null;
+                },
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {},
               ),
@@ -68,10 +90,7 @@ class _EsquecerSenhaPageState extends State<EsquecerSenhaPage> {
               ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.cyan)),
-                onPressed: () {
-                  Navigator.of(context)
-                      .pushReplacementNamed(RoutesGenerator.novaSenha);
-                },
+                onPressed: _esquecerSenha,
                 child: const Text(
                   "Enviar",
                   style: TextStyle(

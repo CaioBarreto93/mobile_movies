@@ -48,6 +48,7 @@ class _CadastroPageState extends State<CadastroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
         title: const Text('Cadastro'),
       ),
       body: Padding(
@@ -89,6 +90,8 @@ class _CadastroPageState extends State<CadastroPage> {
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Por favor, insira uma senha.';
+                  } if(value.length < 7) {
+                    return 'A senha deve ter pelo menos 7 caracteres';
                   }
                   return null;
                 },

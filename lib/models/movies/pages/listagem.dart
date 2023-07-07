@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_movies/models/movies/controller/moviecontroller.dart';
+import 'package:mobile_movies/routes/routes_generator.dart';
+import 'package:mobile_movies/shared/constants.dart';
 
 import '../../../components/toprated.dart';
 import '../../../shared/text.dart';
@@ -12,6 +14,38 @@ class ListagemPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                image: DecorationImage(
+                  image: NetworkImage(
+                      'https://img.nsctotal.com.br/wp-content/uploads/2022/10/Filmes-de-Comedia-Netflix_1.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: SizedBox.shrink(),
+            ),
+            ListTile(
+              leading: const Icon(Icons.burst_mode_outlined),
+              title: const Text(AppConstants.listagemFilmes),
+              onTap: () {
+                Navigator.of(context).pushNamed(RoutesGenerator.listagemPage);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.tv),
+              title: const Text(AppConstants.listagemTV),
+              onTap: () {
+                Navigator.of(context).pushNamed(RoutesGenerator.listagemTVPage);
+              },
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const modified_text(

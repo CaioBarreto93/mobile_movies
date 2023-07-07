@@ -1,11 +1,15 @@
 import 'package:mobile_movies/models/movies/services/movie_service.dart';
 
-class MovieController{
+class MovieController {
   final MovieService _movieService;
 
-  MovieController( MovieService movieService) : _movieService=movieService;
+  MovieController(MovieService movieService) : _movieService = movieService;
 
-  Future<List> getMovies() async{
+  Future<List> getMovies() async {
     return await _movieService.getMovies();
+  }
+
+  Future<List> getTVSeries() async {
+    return await _movieService.getTVSeries();
   }
 }

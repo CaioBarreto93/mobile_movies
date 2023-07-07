@@ -5,10 +5,12 @@ import '../../../shared/validators.dart';
 import '../../../models/login/pages/cadastro.dart';
 
 class LoginPage extends StatefulWidget {
-    final String emailUsuario;
-    final String senhaUsuario;
-    
-  const LoginPage({Key? key, required this.emailUsuario, required this.senhaUsuario}) : super(key: key);
+  final String emailUsuario;
+  final String senhaUsuario;
+
+  const LoginPage(
+      {Key? key, required this.emailUsuario, required this.senhaUsuario})
+      : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -88,8 +90,11 @@ class _LoginPageState extends State<LoginPage> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               if ((_email == 'valido@usuario.com.br' &&
-                                  _password == '123456@') || (widget.emailUsuario == _controllerEmail.text &&
-                                   widget.senhaUsuario == _controllerPassword.text)) {
+                                      _password == '123456@') ||
+                                  (widget.emailUsuario ==
+                                          _controllerEmail.text &&
+                                      widget.senhaUsuario ==
+                                          _controllerPassword.text)) {
                                 _email = '';
                                 _password = '';
                                 _controllerPassword.clear();

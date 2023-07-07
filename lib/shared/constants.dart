@@ -6,4 +6,7 @@ abstract class AppConstants {
     borderRadius: BorderRadius.all(Radius.circular(8.0)),
     borderSide: BorderSide(color: Colors.grey),
   );
+
+  static const listagemFilmes = 'Filmes';
+  static const listagemTV = 'Serie e Novelas';
 }

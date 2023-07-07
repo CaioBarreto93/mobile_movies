@@ -26,4 +26,27 @@ class MovieDatasourceImpl implements MovieDatasource {
 
     throw UnimplementedError();
   }
+
+  @override
+  Future<List> getAllTV() async {
+    const String apikey = 'af7a47dd2a49368c56a1adbbd3ef5cdb';
+    const String readaccesstoken =
+        'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZjdhNDdkZDJhNDkzNjhjNTZhMWFkYmJkM2VmNWNkYiIsInN1YiI6IjViNWEyZDZkMGUwYTI2NzQ5ZTAwMzA5YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uetiKdXMuRiWvOM_1CqDYuB2pAoq9abOlYrktjiWr6o';
+    List tvpopularrecent = [];
+
+    TMDB tmdbWithCustomLogs = TMDB(
+      ApiKeys(apikey, readaccesstoken),
+      logConfig: const ConfigLogger(
+        showLogs: true,
+        showErrorLogs: true,
+      ),
+      defaultLanguage: 'pt-BR',
+    );
+
+    Map tvpopular = await tmdbWithCustomLogs.v3.tv.getPopular();
+
+    tvpopularrecent = tvpopular['results'];
+
+    return tvpopularrecent;
+  }
 }

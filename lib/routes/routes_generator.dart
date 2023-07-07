@@ -9,6 +9,7 @@ import '../models/login/pages/cadastro.dart';
 import '../models/login/pages/esquecer_senha.dart';
 import '../models/login/pages/login.dart';
 import '../models/login/pages/novaSenha.dart';
+import '../models/movies/pages/listagemTV.dart';
 import '../shared/constants.dart';
 
 class RoutesGenerator {
@@ -17,6 +18,7 @@ class RoutesGenerator {
   static const esquecerSenha = '/esquecer_senha';
   static const novaSenha = '/novaSenha';
   static const listagemPage = '/listagem';
+  static const listagemTVPage = '/listagemTV';
 
   RoutesGenerator._();
 
@@ -27,16 +29,20 @@ class RoutesGenerator {
 
     switch (settings.name) {
       case loginPage:
-        return _goPage(const LoginPage(emailUsuario: 'email',senhaUsuario: 'senha', ));
+        return _goPage(const LoginPage(
+          emailUsuario: 'email',
+          senhaUsuario: 'senha',
+        ));
       case cadastro:
         return _goPage(const CadastroPage());
       case esquecerSenha:
         return _goPage(const EsquecerSenhaPage());
       case novaSenha:
         return _goPage(const NovaSenhaPage());
-
       case listagemPage:
         return _goPage(ListagemPage(movieController: movieController));
+      case listagemTVPage:
+        return _goPage(ListagemTVPage(movieController: movieController));
       default:
         throw const FormatException(AppConstants.pageNotFound);
     }

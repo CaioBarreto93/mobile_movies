@@ -1,11 +1,15 @@
 import 'package:mobile_movies/models/movies/datasources/movie_datasource.dart';
 
-class MovieService{
+class MovieService {
   final MovieDatasource _datasource;
 
-  MovieService (MovieDatasource datasource): _datasource = datasource;
+  MovieService(MovieDatasource datasource) : _datasource = datasource;
 
-  Future<List> getMovies() async{
-    return await  _datasource.getAll();
+  Future<List> getMovies() async {
+    return await _datasource.getAll();
+  }
+
+  Future<List> getTVSeries() async {
+    return await _datasource.getAllTV();
   }
 }

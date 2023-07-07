@@ -23,7 +23,7 @@ class ListagemPage extends StatelessWidget {
                 color: Colors.grey,
                 image: DecorationImage(
                   image: NetworkImage(
-                      'https://img.nsctotal.com.br/wp-content/uploads/2022/10/Filmes-de-Comedia-Netflix_1.jpg'),
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIsfRHWK-qgWcDUmNzW46t6qK45SF1hRsEVw&usqp=CAU'),
                   fit: BoxFit.cover,
                 ),
               ),
